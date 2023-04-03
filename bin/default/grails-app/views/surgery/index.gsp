@@ -1,38 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'surgery.label', default: 'Surgery')}" />
-        <title><g:message code="default.list.label" args="[entityName]" /></title>
-    </head>
-    <body>
+<head>
+    <meta name="layout" content="main" />
+    <g:set var="entityName" value="${message(code: 'surgery.label', default: 'Surgery')}" />
+</head>
+<body>
     <div id="content" role="main">
-        <div class="container">
-            <section class="row">
-                <a href="#list-surgery" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-                <div class="nav" role="navigation">
-                    <ul>
-                        <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                        <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-                    </ul>
-                </div>
-            </section>
-            <section class="row">
-                <div id="list-surgery" class="col-12 content scaffold-list" role="main">
-                    <h1><g:message code="default.list.label" args="[entityName]" /></h1>
-                    <g:if test="${flash.message}">
-                        <div class="message" role="status">${flash.message}</div>
-                    </g:if>
-                    <f:table collection="${surgeryList}" />
-
-                    <g:if test="${surgeryCount > params.int('max')}">
-                    <div class="pagination">
-                        <g:paginate total="${surgeryCount ?: 0}" />
+        <div class="container px-4 py-5" id="hanging-icons">
+            <h2 class="pb-2 border-bottom">Our Surgeries</h2>
+            <g:if test="${flash.message}">
+            <div class="message" role="status">${flash.message}</div>
+            </g:if>
+            <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                <g:each var="surgery" in="${surgeryList}">
+                <div class="col d-flex align-items-start">
+                    <div>
+                        <h3 class="fs-2">${surgery.name}</h3>
+                        <p>${surgery.description}</p>
+                        <g:link class="btn btn-primary" action="show" id="${surgery.id}">See details</g:link>
                     </div>
-                    </g:if>
                 </div>
-            </section>
+                </g:each>
+            </div>
         </div>
     </div>
-    </body>
+</body>
 </html>

@@ -9,8 +9,9 @@ class UrlMappings {
             }
         }
 
-        "/"(view:"/index")
-        "500"(view:'/error')
-        "404"(view:'/notFound')
+        "/"(controller: "surgery", action: "index")
+        "/about"(view: "/index")
+        "500"(view: '/error')
+        "404"(view: '/notFound')
     }
 }
