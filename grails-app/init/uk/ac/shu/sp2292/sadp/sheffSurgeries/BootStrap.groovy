@@ -61,8 +61,8 @@ class BootStrap
             patientPhone: '0114 222 4444',
             patientAddress: '2 One Way Street, Eckington',
             patientResidence: 'Sheffield, Barnsley, Doncaster',
-            patientDOB: '1988-09-20',
-            patientID: 'E25555',
+            patientDob: '1988-09-20',
+            patientId: 'E25555',
             dateRegistered: '2021-02-26',
             surgery: surgery1
         ).save()
@@ -73,8 +73,8 @@ class BootStrap
             patientPhone: '07824 790457',
             patientAddress: '17 Bassledene Road, Sheffield S2 1HZ',
             patientResidence: 'Sheffield',
-            patientDOB: '2019-03-21',
-            patientID: 'C2747119',
+            patientDob: '2019-03-21',
+            patientId: 'C2747119',
             dateRegistered: '2022-11-14',
             surgery: surgery2
         ).save()

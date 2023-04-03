@@ -7,23 +7,34 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-            <span class="fs-4">Sheffield Surgeries' Appointment System</span>
-        </a>
-
-        <ul class="nav nav-pills">
-            <li class="nav-item"><a href="${createLink(uri: '/')}" class="nav-link active" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="${createLink(uri: '/about')}" class="nav-link">About Us</a></li>
-            <li class="nav-item"><g:link controller="doctor" class="nav-link">Doctors</g:link></li>
-            <li class="nav-item"><g:link controller="nurse" class="nav-link">Nurses</g:link></li>
-            <li class="nav-item"><g:link controller="receptionist" class="nav-link">Receptionists</g:link></li>
-            <li class="nav-item"><g:link controller="patient" class="nav-link">Patients</g:link></li>
-            <li class="nav-item"><g:link controller="appointment" class="nav-link">Appointments</g:link></li>
-            <li class="nav-item"><g:link controller="prescription" class="nav-link">Prescriptions</g:link></li>
-            
-        </ul>
+    <nav class="py-2 bg-body-tertiary border-bottom">
+        <div class="container d-flex flex-wrap">
+            <ul class="nav me-auto">
+                <li class="nav-item"><a href="${createLink(uri: '/')}" class="nav-link link-dark px-2 active" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="${createLink(uri: '/about')}" class="nav-link link-dark px-2">About Us</a></li>
+                <g:navToggle />
+            </ul>
+            <ul class="nav">
+                <g:userToggle />
+            </ul>
+        </div>
+    </nav>
+    <header class="py-3 mb-4 border-bottom">
+        <div class="container d-flex flex-wrap justify-content-center">
+            <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
+                <span class="fs-4">Sheffield Surgeries' Appointment System</span>
+            </a>
+            <g:if test="${session.receptionist}">
+            <g:form controller="patient" action="results" class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
+                <input name="query" type="search" class="form-control" placeholder="Search patient" aria-label="Search">
+            </g:form>
+            </g:if>
+            <g:if test="${session.doctor}">
+            <g:form controller="prescription" action="results" class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
+                <input name="query" type="search" class="form-control" placeholder="Search prescription" aria-label="Search">
+            </g:form>
+            </g:if>
+        </div>
     </header>
     <g:layoutBody/>
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">

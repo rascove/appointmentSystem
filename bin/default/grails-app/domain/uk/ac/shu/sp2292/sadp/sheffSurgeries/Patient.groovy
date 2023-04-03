@@ -2,8 +2,8 @@ package uk.ac.shu.sp2292.sadp.sheffSurgeries
 
 class Patient
 {
-    String patientName, patientAddress, patientResidence, patientID, patientPhone
-    Date patientDOB, dateRegistered
+    String patientName, patientAddress, patientResidence, patientId, patientPhone
+    Date patientDob, dateRegistered
 
 	String toString()
 	{
@@ -15,8 +15,8 @@ class Patient
         patientName()
         patientAddress()
         patientResidence()
-        patientDOB()
-        patientID()
+        patientDob()
+        patientId()
         dateRegistered()
         patientPhone()
     }
