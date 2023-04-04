@@ -27,7 +27,7 @@
                             <h4 class="fw-semibold mb-0">Our Doctors</h4>
                             <div class="list-group">
                                 <g:each var="doctor" in="${surgery.doctors}">
-                                <g:link class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true" controller="doctor" action="show" id="${doctor.id}">
+                                <div class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
                                     <div class="d-flex gap-2 w-100 justify-content-between">
                                         <div>
                                             <h6 class="mb-0">${doctor.doctorName}</h6>
@@ -35,7 +35,7 @@
                                         </div>
                                         <small class="opacity-50 text-nowrap">${doctor.position}</small>
                                     </div>
-                                </g:link>
+                                </div>
                                 </g:each>
                             </div>
                         </div>
@@ -46,14 +46,14 @@
                             <h4 class="fw-semibold mb-0">Our Nurses</h4>
                             <div class="list-group">
                                 <g:each var="nurse" in="${surgery.nurses}">
-                                <g:link class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true" controller="nurse" action="show" id="${nurse.id}">
+                                <div class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
                                     <div class="d-flex gap-2 w-100 justify-content-between">
                                         <div>
                                             <h6 class="mb-0">${nurse.nurseName}</h6>
                                             <p class="mb-0 opacity-75">${nurse.qualifications}</p>
                                         </div>
                                     </div>
-                                </g:link>
+                                </div>
                                 </g:each>
                             </div>
                         </div>

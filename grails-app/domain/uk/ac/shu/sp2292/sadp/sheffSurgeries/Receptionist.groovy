@@ -9,6 +9,11 @@ class Receptionist
 		return recepName
 	}
 
+    static mapping =
+    {
+        surgery(lazy: false)
+    }
+
     static constraints =
     {
         recepName()

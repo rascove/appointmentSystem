@@ -9,7 +9,6 @@
     <div id="content" role="main">
         <div class="container">
             <section class="row">
-                <a href="#create-appointment" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
                 <div class="nav" role="navigation">
                     <ul>
                         <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
@@ -32,7 +31,21 @@
                     </g:hasErrors>
                     <g:form resource="${this.appointment}" method="POST">
                         <fieldset class="form">
-                            <f:all bean="appointment"/>
+                            <g:hiddenField name="surgery" value="${this.surgery.id}" />
+                            <f:field bean="appointment" property="appDateTime">
+                                <g:datePicker name="${property}" />
+                            </f:field>
+                            <f:field bean="appointment" property="duration" />
+                            <f:field bean="appointment" property="roomNumber" />
+                            <f:field bean="appointment" property="patient">
+                                <g:select name="${property}" from="${this.patientList}" optionKey="id" />
+                            </f:field>
+                            <f:field bean="appointment" property="doctor">
+                                <g:select name="${property}" from="${this.doctorList}" optionKey="id" noSelection="${['null':'']}" />
+                            </f:field>
+                            <f:field bean="appointment" property="nurses">
+                                <g:select name="${property}" from="${this.nurseList}" optionKey="id" multiple="true" />
+                            </f:field>
                         </fieldset>
                         <fieldset class="buttons">
                             <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />

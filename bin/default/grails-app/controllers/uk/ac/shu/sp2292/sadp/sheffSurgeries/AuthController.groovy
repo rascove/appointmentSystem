@@ -6,7 +6,7 @@ class AuthController
 
     def login()
     {
-        if (request.getSession(false) && (session.receptionist || session.doctor))
+        if (session.receptionist || session.doctor)
         {
             redirect(uri: "/")
         }

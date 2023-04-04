@@ -10,6 +10,11 @@ class Doctor
 		return doctorName
 	}
 
+    static mapping =
+    {
+        surgery(lazy: false)
+    }
+
     static constraints =
     {
         doctorName()

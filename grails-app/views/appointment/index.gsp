@@ -9,7 +9,6 @@
     <div id="content" role="main">
         <div class="container">
             <section class="row">
-                <a href="#list-appointment" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
                 <div class="nav" role="navigation">
                     <ul>
                         <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
@@ -25,8 +24,12 @@
                     <g:if test="${flash.message}">
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
-                    <f:table collection="${appointmentList}" />
-
+                    <g:if test="${session.receptionist}">
+                    <f:table collection="${appointmentList}" except="id,surgery" />
+                    </g:if>
+                    <g:if test="${session.doctor}">
+                    <f:table collection="${appointmentList}" except="id,surgery,doctor" />
+                    </g:if>
                     <g:if test="${appointmentCount > params.int('max')}">
                     <div class="pagination">
                         <g:paginate total="${appointmentCount ?: 0}" />
