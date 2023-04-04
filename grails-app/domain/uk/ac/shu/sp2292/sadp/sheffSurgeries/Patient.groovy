@@ -5,11 +5,6 @@ class Patient
     String patientName, patientAddress, patientResidence, patientID, patientPhone
     Date patientDOB, dateRegistered
 
-	String toString()
-	{
-		return patientName
-	}
-
     static constraints =
     {
         patientName()

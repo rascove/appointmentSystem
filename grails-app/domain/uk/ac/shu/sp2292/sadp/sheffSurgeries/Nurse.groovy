@@ -4,11 +4,6 @@ class Nurse
 {
     String nurseName, qualifications, nurseEmail, nurseOffice, nursePhone
 
-	String toString()
-	{
-		return nurseName
-	}
-
     static constraints =
     {
         nurseName()

@@ -6,11 +6,6 @@ class Appointment
     int duration
     String roomNumber
 
-    String toString()
-    {
-        return appDateTime
-    }
-
     static constraints =
     {
         appDateTime()

@@ -8,11 +8,6 @@ class Prescription
     Date dateIssued
     boolean patientPaying
 
-    String toString()
-    {
-        return prescriptionNumber + ' - ' + medicine
-    }
-
     static constraints =
     {
         prescriptionNumber(unique: true)

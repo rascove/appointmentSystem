@@ -5,11 +5,6 @@ class Doctor
     String doctorName, qualifications, position, doctorEmail, password,
         doctorOffice, doctorPhone, bio
 
-	String toString()
-	{
-		return doctorName
-	}
-
     static constraints =
     {
         doctorName()

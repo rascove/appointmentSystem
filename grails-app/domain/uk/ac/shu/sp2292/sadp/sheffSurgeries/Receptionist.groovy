@@ -4,11 +4,6 @@ class Receptionist
 {
     String recepName, recepEmail, recepUsername, recepPassword, recepPhone
 
-	String toString()
-	{
-		return recepName
-	}
-
     static constraints =
     {
         recepName()

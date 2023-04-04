@@ -5,11 +5,6 @@ class Surgery
 	String name, address, postcode, telephone, description, openingTime
 	int numberOfPatients
 	boolean registeringNewPatients
-
-	String toString()
-	{
-		return name
-	}
 	
 	static constraints =
 	{
