@@ -31,36 +31,36 @@ class BootStrap
 
         def doctor1 = new Doctor
         (
-            doctorName: 'Dr Sarah Macdonald',
-            doctorEmail: 's.macdonald@myemail.com',
-            doctorPhone: '01111777',
+            name: 'Dr Sarah Macdonald',
+            email: 's.macdonald@myemail.com',
+            phone: '01111777',
             qualifications: 'MBChB(Sheffield)',
             position: 'GP, Surgeon',
             password: 'secret222',
-            doctorOffice: 'D-9888',
+            office: 'D-9888',
             bio: 'Lorem ipsum',
             surgery: surgery1
         ).save()
 
         def doctor2 = new Doctor
         (
-            doctorName: 'Dr Satrya Fajri Pratama',
-            doctorEmail: 's.pratama@shu.ac.uk',
-            doctorPhone: '07824 790385',
+            name: 'Dr Satrya Fajri Pratama',
+            email: 's.pratama@shu.ac.uk',
+            phone: '07824 790385',
             qualifications: 'PhD',
             position: 'Consultant',
             password: 'abc123',
-            doctorOffice: 'X-8888',
+            office: 'X-8888',
             bio: 'Lorem ipsum',
             surgery: surgery2
         ).save()
 
         def patient1 = new Patient
         (
-            patientName: 'Tom Rivers',
-            patientPhone: '0114 222 4444',
-            patientAddress: '2 One Way Street, Eckington',
-            patientResidence: 'Sheffield, Barnsley, Doncaster',
+            name: 'Tom Rivers',
+            phone: '0114 222 4444',
+            address: '2 One Way Street, Eckington',
+            residence: 'Sheffield, Barnsley, Doncaster',
             patientDob: '1988-09-20',
             patientId: 'E25555',
             dateRegistered: '2021-02-26',
@@ -69,10 +69,10 @@ class BootStrap
 
         def patient2 = new Patient
         (
-            patientName: 'Khawlah Zuhayrussyajana Pratiwi',
-            patientPhone: '07824 790457',
-            patientAddress: '17 Bassledene Road, Sheffield S2 1HZ',
-            patientResidence: 'Sheffield',
+            name: 'Khawlah Zuhayrussyajana Pratiwi',
+            phone: '07824 790457',
+            address: '17 Bassledene Road, Sheffield S2 1HZ',
+            residence: 'Sheffield',
             patientDob: '2019-03-21',
             patientId: 'C2747119',
             dateRegistered: '2022-11-14',
@@ -81,45 +81,45 @@ class BootStrap
 
         def receptionist1 = new Receptionist
         (
-            recepName: 'Rob Kingston',
-            recepEmail: 'r.kingston@email.com',
-            recepPhone: '0114 222 4445',
-            recepUsername: 'rking',
-            recepPassword: 'secret2019',
+            name: 'Rob Kingston',
+            email: 'r.kingston@email.com',
+            phone: '0114 222 4445',
+            username: 'rking',
+            password: 'secret2019',
             surgery: surgery1
         ).save()
 
         def receptionist2 = new Receptionist
         (
-            recepName: 'Musab Khyrissiddiq Pratama',
-            recepEmail: 'rascove@yahoo.com',
-            recepPhone: '07824 790385',
-            recepUsername: 'musab',
-            recepPassword: 'abcd1234',
+            name: 'Musab Khyrissiddiq Pratama',
+            email: 'rascove@yahoo.com',
+            phone: '07824 790385',
+            username: 'musab',
+            password: 'abcd1234',
             surgery: surgery2
         ).save()
 
         def nurse1 = new Nurse
         (
-            nurseName: 'Susan Peters',
-            nurseEmail: 's.peters@myemail.com',
-            nursePhone: '0114 222 4433',
+            name: 'Susan Peters',
+            email: 's.peters@myemail.com',
+            phone: '0114 222 4433',
             qualifications: 'Registered General Nurse',
-            nurseOffice: 'B-455',
+            office: 'B-455',
             surgery: surgery1
         ).save()
 
         def nurse2 = new Nurse
         (
-            nurseName: 'Lustiana Pratiwi',
-            nurseEmail: 'lustiana@gmail.com',
-            nursePhone: '07824 790457',
+            name: 'Lustiana Pratiwi',
+            email: 'lustiana@gmail.com',
+            phone: '07824 790457',
             qualifications: 'PhD Student',
-            nurseOffice: 'A-777',
+            office: 'A-777',
             surgery: surgery2
         ).save()
 
-        def appointment1 = new Appointment
+        def appointment = new Appointment
         (
             appDateTime: new Date(2021 - 1900, 3, 11, 15, 0, 0),
             duration: 60,
@@ -127,16 +127,6 @@ class BootStrap
             surgery: surgery1,
             doctor: doctor1,
             patient: patient1
-        ).save()
-
-        def appointment2 = new Appointment
-        (
-            appDateTime: new Date(2023 - 1900, 3, 3, 12, 0, 0),
-            duration: 30,
-            roomNumber: 'Room 19',
-            surgery: surgery2,
-            nurses: [nurse2],
-            patient: patient2
         ).save()
 
         def prescription = new Prescription

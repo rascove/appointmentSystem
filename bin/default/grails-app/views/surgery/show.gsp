@@ -30,7 +30,7 @@
                                 <div class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
                                     <div class="d-flex gap-2 w-100 justify-content-between">
                                         <div>
-                                            <h6 class="mb-0">${doctor.doctorName}</h6>
+                                            <h6 class="mb-0">${doctor.name}</h6>
                                             <p class="mb-0 opacity-75">${doctor.qualifications}</p>
                                         </div>
                                         <small class="opacity-50 text-nowrap">${doctor.position}</small>
@@ -49,7 +49,7 @@
                                 <div class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
                                     <div class="d-flex gap-2 w-100 justify-content-between">
                                         <div>
-                                            <h6 class="mb-0">${nurse.nurseName}</h6>
+                                            <h6 class="mb-0">${nurse.name}</h6>
                                             <p class="mb-0 opacity-75">${nurse.qualifications}</p>
                                         </div>
                                     </div>

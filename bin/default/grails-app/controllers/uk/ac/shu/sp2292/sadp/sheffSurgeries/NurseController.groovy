@@ -6,52 +6,52 @@ class NurseController
 
     def index()
     {
-        if (session.receptionist)
+        if (session.user instanceof Receptionist)
         {
-            [nurseList: Nurse.findAllBySurgery(session.receptionist.surgery)]
+            [nurseList: Nurse.findAllBySurgery(session.user.surgery)]
         }
         else
         {
-            response.sendError(401)
+            response.sendError(404)
         }
     }
 
     def show()
     {
-        if (session.receptionist)
+        if (session.user instanceof Receptionist)
         {
-            [nurse: Nurse.findByIdAndSurgery(params.id, session.receptionist.surgery)]
+            [nurse: Nurse.findByIdAndSurgery(params.id, session.user.surgery)]
         }
         else
         {
-            response.sendError(401)
+            response.sendError(404)
         }
     }
 
     def create()
     {
-        if (session.receptionist)
+        if (session.user instanceof Receptionist)
         {
-            [nurse: new Nurse(), surgery: session.receptionist.surgery]
+            [nurse: new Nurse(), surgery: session.user.surgery]
         }
         else
         {
-            response.sendError(401)
+            response.sendError(404)
         }
     }
 
     def edit()
     {
-        response.sendError(401)
+        response.sendError(404)
     }
 
     def update()
     {
-        response.sendError(401)
+        response.sendError(404)
     }
 
     def delete()
     {
-        response.sendError(401)
+        response.sendError(404)
     }
 }

@@ -1,14 +1,8 @@
 package uk.ac.shu.sp2292.sadp.sheffSurgeries
 
-class Doctor
+class Doctor extends MedicalStaff
 {
-    String doctorName, qualifications, position, doctorEmail, password,
-        doctorOffice, doctorPhone, bio
-
-	String toString()
-	{
-		return doctorName
-	}
+    String position, password, bio
 
     static mapping =
     {
@@ -17,13 +11,8 @@ class Doctor
 
     static constraints =
     {
-        doctorName()
-        qualifications()
         position()
-        doctorEmail()
         password()
-        doctorOffice()
-        doctorPhone()
         bio()
     }
 

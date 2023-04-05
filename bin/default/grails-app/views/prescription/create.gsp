@@ -32,9 +32,12 @@
                     </g:hasErrors>
                     <g:form resource="${this.prescription}" method="POST">
                         <fieldset class="form">
-                            <f:all bean="prescription" except="surgery,doctor" />
+                            <f:all bean="prescription" except="surgery,doctor,patient" />
                             <g:hiddenField name="surgery" value="${this.surgery.id}" />
                             <g:hiddenField name="doctor" value="${this.doctor.id}" />
+                            <f:field bean="prescription" property="patient">
+                                <g:select name="${property}" from="${this.patientList}" optionKey="id" />
+                            </f:field>
                         </fieldset>
                         <fieldset class="buttons">
                             <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />

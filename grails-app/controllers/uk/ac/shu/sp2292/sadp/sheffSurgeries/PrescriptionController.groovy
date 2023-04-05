@@ -11,56 +11,58 @@ class PrescriptionController
 
     def index()
     {
-        if (session.doctor)
+        if (session.user instanceof Doctor)
         {
-            [prescriptionList: Prescription.findAllByDoctor(session.doctor)]
+            [prescriptionList: Prescription.findAllByDoctor(session.user)]
         }
         else
         {
-            response.sendError(401)
+            response.sendError(404)
         }
     }
 
     def show()
     {
-        if (session.doctor)
+        if (session.user instanceof Doctor)
         {
-            [prescription: Prescription.findByIdAndDoctor(params.id, session.doctor)]
+            [prescription: Prescription.findByIdAndDoctor(params.id, session.user)]
         }
         else
         {
-            response.sendError(401)
+            response.sendError(404)
         }
     }
 
     def create()
     {
-        if (session.doctor)
+        if (session.user instanceof Doctor)
         {
+            def surgery = session.user.surgery
             [
                 prescription: new Prescription(),
-                surgery: session.doctor.surgery,
-                doctor: session.doctor
+                surgery: surgery,
+                doctor: session.user,
+                patientList: Patient.findAllBySurgery(surgery)
             ]
         }
         else
         {
-            response.sendError(401)
+            response.sendError(404)
         }
     }
 
     def edit()
     {
-        response.sendError(401)
+        response.sendError(404)
     }
 
     def update()
     {
-        response.sendError(401)
+        response.sendError(404)
     }
 
     def delete()
     {
-        response.sendError(401)
+        response.sendError(404)
     }
 }

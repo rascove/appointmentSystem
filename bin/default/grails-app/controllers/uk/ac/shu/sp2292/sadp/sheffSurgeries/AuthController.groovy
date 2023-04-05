@@ -6,7 +6,7 @@ class AuthController
 
     def login()
     {
-        if (session.receptionist || session.doctor)
+        if (session.user)
         {
             redirect(uri: "/")
         }
@@ -14,20 +14,20 @@ class AuthController
 
     def validate()
     {
-        def receptionist = Receptionist.findByRecepUsernameAndRecepPassword(params.username, params.password)
+        def receptionist = Receptionist.findByUsernameAndPassword(params.username, params.password)
 
         if (receptionist)
         {
-            session.receptionist = receptionist
+            session.user = receptionist
             redirect(uri: "/")
         }
         else
         {
-            def doctor = Doctor.findByDoctorEmailAndPassword(params.username, params.password)
+            def doctor = Doctor.findByEmailAndPassword(params.username, params.password)
 
             if (doctor)
             {
-                session.doctor = doctor
+                session.user = doctor
                 redirect(uri: "/")
             }
             else
@@ -40,8 +40,7 @@ class AuthController
 
     def logout =
     {
-        session.receptionist = null
-        session.doctor = null
+        session.user = null
         
         session.invalidate()
         redirect(uri: '/')

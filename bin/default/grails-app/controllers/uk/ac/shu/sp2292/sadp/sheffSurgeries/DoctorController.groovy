@@ -6,52 +6,52 @@ class DoctorController
 
     def index()
     {
-        if (session.receptionist)
+        if (session.user instanceof Receptionist)
         {
-            [doctorList: Doctor.findAllBySurgery(session.receptionist.surgery)]
+            [doctorList: Doctor.findAllBySurgery(session.user.surgery)]
         }
         else
         {
-            response.sendError(401)
+            response.sendError(404)
         }
     }
 
     def show()
     {
-        if (session.receptionist)
+        if (session.user instanceof Receptionist)
         {
-            [doctor: Doctor.findByIdAndSurgery(params.id, session.receptionist.surgery)]
+            [doctor: Doctor.findByIdAndSurgery(params.id, session.user.surgery)]
         }
         else
         {
-            response.sendError(401)
+            response.sendError(404)
         }
     }
 
     def create()
     {
-        if (session.receptionist)
+        if (session.user instanceof Receptionist)
         {
-            [doctor: new Doctor(), surgery: session.receptionist.surgery]
+            [doctor: new Doctor(), surgery: session.user.surgery]
         }
         else
         {
-            response.sendError(401)
+            response.sendError(404)
         }
     }
 
     def edit()
     {
-        response.sendError(401)
+        response.sendError(404)
     }
 
     def update()
     {
-        response.sendError(401)
+        response.sendError(404)
     }
 
     def delete()
     {
-        response.sendError(401)
+        response.sendError(404)
     }
 }

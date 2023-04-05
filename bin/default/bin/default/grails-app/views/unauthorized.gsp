@@ -10,7 +10,7 @@
         <div class="container">
             <section class="row">
                 <ul class="col-12 errors">
-                    <li>Error: Unauthorized Access (401)</li>
+                    <li>Error: Unauthorized Access (404)</li>
                     <li>Path: ${request.forwardURI}</li>
                 </ul>
             </section>

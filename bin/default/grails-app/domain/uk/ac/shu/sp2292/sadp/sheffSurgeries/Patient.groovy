@@ -1,24 +1,17 @@
 package uk.ac.shu.sp2292.sadp.sheffSurgeries
 
-class Patient
+class Patient extends Person
 {
-    String patientName, patientAddress, patientResidence, patientId, patientPhone
+    String address, residence, patientId
     Date patientDob, dateRegistered
-
-	String toString()
-	{
-		return patientName
-	}
 
     static constraints =
     {
-        patientName()
-        patientAddress()
-        patientResidence()
+        address()
+        residence()
         patientDob()
         patientId()
         dateRegistered()
-        patientPhone()
     }
 
     static hasOne = [surgery: Surgery]

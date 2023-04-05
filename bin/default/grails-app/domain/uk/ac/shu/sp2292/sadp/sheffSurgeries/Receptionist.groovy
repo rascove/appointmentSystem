@@ -1,13 +1,8 @@
 package uk.ac.shu.sp2292.sadp.sheffSurgeries
 
-class Receptionist
+class Receptionist extends Staff
 {
-    String recepName, recepEmail, recepUsername, recepPassword, recepPhone
-
-	String toString()
-	{
-		return recepName
-	}
+    String username, password
 
     static mapping =
     {
@@ -16,11 +11,8 @@ class Receptionist
 
     static constraints =
     {
-        recepName()
-        recepEmail()
-        recepUsername()
-        recepPassword()
-        recepPhone()
+        username()
+        password()
     }
 
     static hasOne = [surgery: Surgery]

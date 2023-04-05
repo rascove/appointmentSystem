@@ -12,7 +12,7 @@
                 <div class="nav" role="navigation">
                     <ul>
                         <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                        <g:if test="${session.receptionist}">
+                        <g:if test="${session.user instanceof uk.ac.shu.sp2292.sadp.sheffSurgeries.Receptionist}">
                         <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
                         </g:if>
                     </ul>
@@ -24,10 +24,10 @@
                     <g:if test="${flash.message}">
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
-                    <g:if test="${session.receptionist}">
+                    <g:if test="${session.user instanceof uk.ac.shu.sp2292.sadp.sheffSurgeries.Receptionist}">
                     <f:table collection="${appointmentList}" except="id,surgery" />
                     </g:if>
-                    <g:if test="${session.doctor}">
+                    <g:if test="${session.user instanceof uk.ac.shu.sp2292.sadp.sheffSurgeries.Doctor}">
                     <f:table collection="${appointmentList}" except="id,surgery,doctor" />
                     </g:if>
                     <g:if test="${appointmentCount > params.int('max')}">

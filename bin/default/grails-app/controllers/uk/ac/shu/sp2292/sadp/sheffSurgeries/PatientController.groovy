@@ -7,57 +7,57 @@ class PatientController
     def results(String query)
     {
         query = '%' + query + '%'
-        [patientList: Patient.findAllByPatientNameIlikeOrPatientIdIlikeOrPatientResidenceIlike(query, query, query)]
+        [patientList: Patient.findAllByNameIlikeOrPatientIdIlikeOrResidenceIlike(query, query, query)]
     }
 
     def index()
     {
-        if (session.receptionist)
+        if (session.user instanceof Receptionist)
         {
-            [patientList: Patient.findAllBySurgery(session.receptionist.surgery)]
+            [patientList: Patient.findAllBySurgery(session.user.surgery)]
         }
         else
         {
-            response.sendError(401)
+            response.sendError(404)
         }
     }
 
     def show()
     {
-        if (session.receptionist)
+        if (session.user instanceof Receptionist)
         {
-            [patient: Patient.findByIdAndSurgery(params.id, session.receptionist.surgery)]
+            [patient: Patient.findByIdAndSurgery(params.id, session.user.surgery)]
         }
         else
         {
-            response.sendError(401)
+            response.sendError(404)
         }
     }
 
     def create()
     {
-        if (session.receptionist)
+        if (session.user instanceof Receptionist)
         {
-            [patient: new Patient(), surgery: session.receptionist.surgery]
+            [patient: new Patient(), surgery: session.user.surgery]
         }
         else
         {
-            response.sendError(401)
+            response.sendError(404)
         }
     }
 
     def edit()
     {
-        response.sendError(401)
+        response.sendError(404)
     }
 
     def update()
     {
-        response.sendError(401)
+        response.sendError(404)
     }
 
     def delete()
     {
-        response.sendError(401)
+        response.sendError(404)
     }
 }

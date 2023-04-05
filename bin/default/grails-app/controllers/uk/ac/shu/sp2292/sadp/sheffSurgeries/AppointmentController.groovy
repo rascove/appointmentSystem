@@ -6,68 +6,68 @@ class AppointmentController
 
     def index()
     {
-        if (session.receptionist)
+        if (session.user instanceof Receptionist)
         {
-            [appointmentList: Appointment.findAllBySurgery(session.receptionist.surgery)]
+            [appointmentList: Appointment.findAllBySurgery(session.user.surgery)]
         }
-        else if (session.doctor)
+        else if (session.user instanceof Doctor)
         {
-            [appointmentList: Appointment.findAllByDoctor(session.doctor)]
+            [appointmentList: Appointment.findAllByDoctor(session.user)]
         }
         else
         {
-            response.sendError(401)
+            response.sendError(404)
         }
     }
 
     def show()
     {
-        if (session.receptionist)
+        if (session.user instanceof Receptionist)
         {
-            [appointment: Appointment.findByIdAndSurgery(params.id, session.receptionist.surgery)]
+            [appointment: Appointment.findByIdAndSurgery(params.id, session.user.surgery)]
         }
-        else if (session.doctor)
+        else if (session.user instanceof Doctor)
         {
-            [appointment: Appointment.findByIdAndDoctor(params.id, session.doctor)]
+            [appointment: Appointment.findByIdAndDoctor(params.id, session.user)]
         }
         else
         {
-            response.sendError(401)
+            response.sendError(404)
         }
     }
 
     def create()
     {
-        if (session.receptionist)
+        if (session.user instanceof Receptionist)
         {
-            def surgery = session.receptionist.surgery
+            def surgery = session.user.surgery
 
             [
                 appointment: new Appointment(),
                 surgery: surgery,
-                doctorList: Doctor.findAllBySurgery(surgery),
                 patientList: Patient.findAllBySurgery(surgery),
+                doctorList: Doctor.findAllBySurgery(surgery),
                 nurseList: Nurse.findAllBySurgery(surgery)
             ]
         }
         else
         {
-            response.sendError(401)
+            response.sendError(404)
         }
     }
 
     def edit()
     {
-        response.sendError(401)
+        response.sendError(404)
     }
 
     def update()
     {
-        response.sendError(401)
+        response.sendError(404)
     }
 
     def delete()
     {
-        response.sendError(401)
+        response.sendError(404)
     }
 }

@@ -6,52 +6,52 @@ class ReceptionistController
 
     def index()
     {
-        if (session.receptionist)
+        if (session.user instanceof Receptionist)
         {
-            [receptionistList: Receptionist.findAllBySurgery(session.receptionist.surgery)]
+            [receptionistList: Receptionist.findAllBySurgery(session.user.surgery)]
         }
         else
         {
-            response.sendError(401)
+            response.sendError(404)
         }
     }
 
     def show()
     {
-        if (session.receptionist)
+        if (session.user instanceof Receptionist)
         {
-            [receptionist: Receptionist.findByIdAndSurgery(params.id, session.receptionist.surgery)]
+            [receptionist: Receptionist.findByIdAndSurgery(params.id, session.user.surgery)]
         }
         else
         {
-            response.sendError(401)
+            response.sendError(404)
         }
     }
 
     def create()
     {
-        if (session.receptionist)
+        if (session.user instanceof Receptionist)
         {
-            [receptionist: new Receptionist(), surgery: session.receptionist.surgery]
+            [receptionist: new Receptionist(), surgery: session.user.surgery]
         }
         else
         {
-            response.sendError(401)
+            response.sendError(404)
         }
     }
 
     def edit()
     {
-        response.sendError(401)
+        response.sendError(404)
     }
 
     def update()
     {
-        response.sendError(401)
+        response.sendError(404)
     }
 
     def delete()
     {
-        response.sendError(401)
+        response.sendError(404)
     }
 }

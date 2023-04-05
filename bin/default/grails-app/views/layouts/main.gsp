@@ -24,12 +24,12 @@
             <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
                 <span class="fs-4">Sheffield Surgeries' Appointment System</span>
             </a>
-            <g:if test="${session.receptionist}">
+            <g:if test="${session.user instanceof uk.ac.shu.sp2292.sadp.sheffSurgeries.Receptionist}">
             <g:form controller="patient" action="results" class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
                 <input name="query" type="search" class="form-control" placeholder="Search patient" aria-label="Search">
             </g:form>
             </g:if>
-            <g:if test="${session.doctor}">
+            <g:if test="${session.user instanceof uk.ac.shu.sp2292.sadp.sheffSurgeries.Doctor}">
             <g:form controller="prescription" action="results" class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
                 <input name="query" type="search" class="form-control" placeholder="Search prescription" aria-label="Search">
             </g:form>
