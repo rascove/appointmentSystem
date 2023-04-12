@@ -11,6 +11,10 @@ buildscript {
     }
 }
 
+plugins {
+    id "com.microsoft.azure.azurewebapp" version "1.1.0"
+}
+
 version "0.1"
 group "uk.ac.shu.sp2292.sadp.sheffSurgeries"
 
@@ -20,7 +24,7 @@ apply plugin:"war"
 apply plugin:"org.grails.grails-web"
 apply plugin:"com.github.erdi.webdriver-binaries"
 apply plugin:"org.grails.grails-gsp"
-apply plugin:"com.bertramlabs.asset-pipeline"
+apply plugin:"com.bertramlabs.asset-pipeline"   
 
 repositories {
     mavenCentral()
@@ -43,7 +47,7 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-autoconfigure"
     implementation "org.grails:grails-core"
     implementation "org.springframework.boot:spring-boot-starter-actuator"
-    implementation "org.springframework.boot:spring-boot-starter-tomcat"
+    testImplementation "org.springframework.boot:spring-boot-starter-tomcat"
     implementation "org.grails:grails-web-boot"
     implementation "org.grails:grails-logging"
     implementation "org.grails:grails-plugin-rest"
@@ -125,4 +129,17 @@ tasks.withType(Test) {
 assets {
     minifyJs = true
     minifyCss = true
+}
+
+azurewebapp {
+    subscription = '4dca1f3d-ee35-42f0-bd30-40acaa08cac9'
+    resourceGroup = 'SADP2223'
+    appName = 'sadp2223'
+    pricingTier = 'P1v2' 
+    region = 'uksouth' 
+    runtime {
+        os = 'Linux' 
+        webContainer = 'Tomcat 9.0'
+        javaVersion = 'Java 11'
+    }
 }

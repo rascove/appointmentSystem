@@ -107,24 +107,24 @@ dataSource:
     pooled: true
     jmxExport: true
     driverClassName: com.mysql.cj.jdbc.Driver
-    username: root
-    password: H4ll4mL4bsUser!
+    username: qiahejansw
+    password: 7W71Y635HQ2Z30C1$
 
 environments:
     development:
         dataSource:
-            dbCreate: create-drop
+            dbCreate: update
             url: jdbc:mysql://localhost/appointmentSystem_dev
             dialect: org.hibernate.dialect.MySQL8Dialect
     test:
         dataSource:
-            dbCreate: none
-            url: jdbc:mysql://localhost/appointmentSystem_test
+            dbCreate: update
+            url: jdbc:mysql://sadp2223-server.mysql.database.azure.com:3306/sadp2223-test?serverTimezone=UTC&sslmode=required
             dialect: org.hibernate.dialect.MySQL8Dialect
     production:
         dataSource:
-            dbCreate: none
-            url: jdbc:mysql://localhost/appointmentSystem
+            dbCreate: update
+            url: jdbc:mysql://sadp2223-server.mysql.database.azure.com:3306/sadp2223-database?serverTimezone=UTC&sslmode=required
             dialect: org.hibernate.dialect.MySQL8Dialect
             properties:
                 jmxEnabled: true
